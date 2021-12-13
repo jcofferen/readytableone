@@ -1,9 +1,9 @@
 Package: readytableone
-Title: READYTABLEONE: Summary Table
+Title: READYTABLEONE: A Quick Table 1 of Descriptive Statistics
 Version: 0.0.0.9000
 Authors@R: 
     person("Jake", "Cofferen", , "jacob.cofferen@gmail.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: This package takes a pre-formatted data frame containing numeric and factor variables and prints a table containing measures of center and spread for continuous variables and proportions for categorical variables. 
 License:  `use_gpl3_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
