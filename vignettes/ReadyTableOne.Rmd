@@ -18,6 +18,10 @@ knitr::opts_chunk$set(
 library(readytableone)
 ```
 
+## ReadyTableOne creates a ready-to-publish table of descriptive statistics.
+
+The function takes a dataframe $df$, preferably pre-formatted to include numeric and factor (categorical) variables only. The user selects the variable by which they wish to $stratify$ the $df$. The function call, $rto$ is an acronym for the package name.
+
 ```{r}
 
 rto(df, stratify = "vs")
