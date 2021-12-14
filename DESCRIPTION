@@ -4,6 +4,7 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jake", "Cofferen", , "jacob.cofferen@gmail.com", role = c("aut", "cre"))
 Description: This package takes a pre-formatted data frame containing numeric and factor variables and prints a table containing measures of center and spread for continuous variables and proportions for categorical variables. 
+Depends: R (>= 3.6.0), tidyverse, kableExtra
 License:  `use_gpl3_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
