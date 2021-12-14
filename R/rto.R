@@ -7,6 +7,7 @@
 ##' @param nonpara use non-parametric estimates (i.e., median, IQR)
 ##' @return table of descriptive statistics
 ##' @author Jake Cofferen
+##' @import tidyverse kableExtra
 ##' @export
 ##' @examples  
 ##' rto(df, stratify = "vs")
@@ -30,13 +31,6 @@ rto <- function (x, stratify, nonpara = FALSE){
   sds <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, sd)
   ns <- df %>% group_by_at(strat) %>% summarise(n = n())
   
-  
-  
-  means <- data.frame(means[-1])
-  sds <- data.frame(sds[-1])
-  
-  #colnames(means) <- nums_labels
-  
   ## nonparametric center and spread for continuous variables
   medians <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, median)
   ranges <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, c(min, max))
@@ -58,7 +52,7 @@ rto <- function (x, stratify, nonpara = FALSE){
   colnames(res_num) <- tbl_names
   
   ## name variables and center (spread)
-  j <- 1
+  j <- 2
   
   
   for(i in 1:nrow(res_num)){
@@ -71,27 +65,24 @@ rto <- function (x, stratify, nonpara = FALSE){
   }
   
   ## add values
-  j <- 1
-  
-  for(i in 1:nrow(res_num)){
-    ifelse(i %% 2 == 0,
-           res_num[i, 2] <- paste0(signif(means[1, j], 3), " (", signif(sds[1, j], 3), ")"),
-           res_num[i, 2] <- "")
-    ifelse(i %% 2 != 0,
-           j <- j + 1,
-           j <- j)
-  }
   
   j <- 1
+  k <- 1
   
-  for(i in 1:nrow(res_num)){
-    ifelse(i %% 2 == 0,
-           res_num[i, 3] <- paste0(signif(means[2, j], 3), " (", signif(sds[2, j], 3), ")"),
-           res_num[i, 3] <- "")
-    ifelse(i %% 2 != 0,
-           j <- j + 1,
-           j <- j)
+  for(b in 1:strat_cols){
+    for(i in 1:nrow(res_num)){
+      ifelse(i %% 2 == 0,
+             res_num[i, k+1] <- paste0(signif(means[k, j], 3), " (", signif(sds[k, j], 3), ")"),
+             res_num[i, k+1] <- "")
+      ifelse(i %% 2 != 0,
+             j <- j + 1,
+             j <- j)
+    }
+    
+    j <- 1
+    k <- k +1
   }
+  
   
   res_num %>% kbl() %>%  add_indent(seq(2, nrow(res_num), 2)) %>% kable_classic(full_width = FALSE)
   
