@@ -84,6 +84,21 @@ rto <- function (x, stratify, nonpara = FALSE){
   }
   
   
-  res_num %>% kbl() %>%  add_indent(seq(2, nrow(res_num), 2)) %>% kable_classic(full_width = FALSE)
+  res_num %>% kbl(align = c("l", rep("c", ncol(res_num)-1))) %>%  add_indent(seq(2, nrow(res_num), 2)) %>% kable_classic(full_width = FALSE)
+  
+  
+  ## proportions
+  
+  
+  facts <- df %>% select(-all_of(nums))
+  
+  factsum <- df %>% group_by_at(strat) %>% summarise()
+  
+  props <- list(ncol(facts))
+  length(props)
+  
+  for(i in 1:ncol(facts)){
+    props[[i]]<- prop.table(table(facts[,i]))
+  }
   
 }
