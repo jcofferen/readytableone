@@ -2,7 +2,7 @@
 % Please edit documentation in R/rto.R
 \name{rto}
 \alias{rto}
-\title{add two numbers}
+\title{ReadyTableOne: A Quick Table 1 of Descriptive Statistics}
 \usage{
 rto(x, stratify, nonpara = FALSE)
 }
@@ -17,10 +17,14 @@ rto(x, stratify, nonpara = FALSE)
 table of descriptive statistics
 }
 \description{
-Create a publication-ready table (Description)
+Create a publication-ready table of descriptive statistics stratified by binary variable.
 }
 \details{
-This package will prepare a high-quality table of descriptive statistics for a pre-formatted dataframe containing numeric and factor variables. (Details)
+This package will prepare a high-quality table of descriptive statistics for a pre-formatted dataframe containing numeric and factor variables.
+}
+\examples{
+ 
+rto(df, stratify = "vs")
 }
 \author{
 Jake Cofferen

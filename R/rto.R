@@ -1,13 +1,15 @@
-##' Create a publication-ready table (Description)
+##' Create a publication-ready table of descriptive statistics stratified by binary variable. 
 ##'
-##' This package will prepare a high-quality table of descriptive statistics for a pre-formatted dataframe containing numeric and factor variables. (Details)
-##' @title add two numbers
+##' This package will prepare a high-quality table of descriptive statistics for a pre-formatted dataframe containing numeric and factor variables.
+##' @title ReadyTableOne: A Quick Table 1 of Descriptive Statistics
 ##' @param x data frame containing numeric and factor variables
 ##' @param stratify variable by which to stratify (e.g., treatment)
 ##' @param nonpara use non-parametric estimates (i.e., median, IQR)
 ##' @return table of descriptive statistics
 ##' @author Jake Cofferen
 ##' @export
+##' @examples  
+##' rto(df, stratify = "vs")
 
 rto <- function (x, stratify, nonpara = FALSE){
   test <- NULL
