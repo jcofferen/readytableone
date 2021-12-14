@@ -31,6 +31,8 @@ rto <- function (x, stratify, nonpara = FALSE){
   sds <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, sd)
   ns <- df %>% group_by_at(strat) %>% summarise(n = n())
   
+  nums <- colnames(means)[-1]
+  
   ## nonparametric center and spread for continuous variables
   medians <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, median)
   ranges <- df %>% group_by_at(strat) %>% summarise_if(is.numeric, c(min, max))
