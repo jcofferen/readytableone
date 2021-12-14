@@ -9,13 +9,13 @@
 ##' @author Jake Cofferen
 ##' @export
 
-rto <- function (x, stratify = y, nonpara = FALSE){
+rto <- function (x, stratify, nonpara = FALSE){
 
   ## assign the dataframe
   df <- x
   
 ## variable for stratification
-strat <- y
+strat <- stratify
 strat_cols <- nlevels(df[,eval(strat)])
 strat_levels <- levels(df[,eval(strat)])
 strat_labels <- c("V-shaped", "Straight")

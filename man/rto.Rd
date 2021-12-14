@@ -4,7 +4,7 @@
 \alias{rto}
 \title{add two numbers}
 \usage{
-rto(x, stratify = y, nonpara = FALSE)
+rto(x, stratify, nonpara = FALSE)
 }
 \arguments{
 \item{x}{data frame containing numeric and factor variables}
