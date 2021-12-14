@@ -1,2 +1,8 @@
 # readytableone
-Quickly prepare "Table 1" for publication from a dataset
+This R package creates a table of summary statistics suitable for publication in an academic journal.
+
+## how to install the R package
+devtools::install_github("jcofferen/readytableone")
+
+## example
+rto(df)
