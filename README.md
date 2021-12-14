@@ -5,4 +5,4 @@ This R package creates a table of summary statistics suitable for publication in
 devtools::install_github("jcofferen/readytableone")
 
 ## example
-rto(df)
+rto(df, stratify = "vs")
