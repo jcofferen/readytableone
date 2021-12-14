@@ -86,7 +86,7 @@ rto <- function (x, stratify, nonpara = FALSE){
   }
   
   
-  res_num %>% kbl(align = c("l", rep("c", ncol(res_num)-1))) %>%  add_indent(seq(2, nrow(res_num), 2)) %>% kable_classic(full_width = FALSE)
+  
   
   
   ## proportions
@@ -102,5 +102,8 @@ rto <- function (x, stratify, nonpara = FALSE){
   for(i in 1:ncol(facts)){
     props[[i]]<- prop.table(table(facts[,i]))
   }
+  
+  ## print final table
+  res_num %>% kbl(align = c("l", rep("c", ncol(res_num)-1))) %>%  add_indent(seq(2, nrow(res_num), 2)) %>% kable_classic(full_width = FALSE)
   
 }
